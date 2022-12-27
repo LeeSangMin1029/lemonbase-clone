@@ -88,7 +88,7 @@ const Component = () => {
           <BtnLink href="/">
             <span>로그인</span>
           </BtnLink>
-          <FreeBtnLink href="/" blue>
+          <FreeBtnLink href="/">
             <span>무료체험 링크</span>
           </FreeBtnLink>
         </Section>
