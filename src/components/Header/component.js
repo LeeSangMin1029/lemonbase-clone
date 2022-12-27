@@ -1,5 +1,8 @@
 import styled from "styled-components";
-
+import { useState } from "react";
+import { ReactComponent as NewIcon } from "./new_voucher.svg";
+import DropdownMenu from "../DropdownMenu";
+import ArrowIcon from "../ArrowIcon";
 const Wrapper = styled.header`
   position: fixed;
   left: 0;
@@ -7,26 +10,25 @@ const Wrapper = styled.header`
   top: 0;
   width: 100%;
   height: 68px;
-  > div {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 1024px;
-    max-width: 1164px;
-    height: 100%;
-    width: 100%;
-  }
 `;
 
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 1024px;
+  max-width: 1164px;
+  height: 100%;
+  width: 100%;
 `;
 
 const Section = styled.div`
   display: flex;
   align-items: center;
+
+  position: relative;
   gap: 8px;
 `;
 
@@ -35,24 +37,13 @@ const BtnLink = styled.a`
     padding: 13px 16px;
     border-radius: 8px;
     font-size: 14px;
+    user-select: none;
     &:hover {
       background-color: #f3f5f6;
       color: #4c5067;
       transition: all 0.3s ease 0s;
+      cursor: pointer;
     }
-  }
-`;
-
-const BtnLinkWithIcon = styled(BtnLink)`
-  span:after {
-    content: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-10 6 80 40'%3E%3Cpath fill='red' d='M61 14H3a2 2 0 0 0-2 2v32a2 2 0 0 0 2 2h58a2 2 0 0 0 2-2V16a2 2 0 0 0-2-2ZM21.5 39a2 2 0 0 1-1.5 1.93 1.93 1.93 0 0 1-.53.07 2 2 0 0 1-1.72-1l-4.61-7.75V39a2 2 0 0 1-4 0V25a2 2 0 0 1 3.71-1l4.62 7.75V25a2 2 0 0 1 4 0Zm9.5-9a2 2 0 0 1 0 4h-2.5v3h6a2 2 0 0 1 0 4h-8a2 2 0 0 1-2-2V25a2 2 0 0 1 2-2h8a2 2 0 0 1 0 4h-6v3Zm23.5 9a2 2 0 0 1-.78 1.58 2.11 2.11 0 0 1-.27.18l-.22.1h-.39a1.66 1.66 0 0 1-.32 0 2 2 0 0 1-1.58-.78l-.09-.11-3.74-4.85-3.83 5a2 2 0 0 1-1.58.78h-.2a2 2 0 0 1-2-2V25a2 2 0 0 1 4 0v8.38l1.9-2.45.11-.15a2 2 0 0 1 .36-.36 1.67 1.67 0 0 1 .28-.18 1.51 1.51 0 0 1 .26-.12h.1a1.22 1.22 0 0 1 .26-.06 1.72 1.72 0 0 1 .64 0 1.22 1.22 0 0 1 .26.06h.1a1.51 1.51 0 0 1 .26.12 1.67 1.67 0 0 1 .28.18 2.05 2.05 0 0 1 .47.51l1.72 2.22V25a2 2 0 0 1 4 0Z'/%3E%3C/svg%3E");
-    width: 30px;
-    margin-left: 8px;
-  }
-  span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `;
 
@@ -69,6 +60,10 @@ const FreeBtnLink = styled(BtnLink)`
 `;
 
 const Component = () => {
+  const [open, setOpen] = useState(false);
+  const handleOnClick = (e) => {
+    setOpen(!open);
+  };
   return (
     <Wrapper>
       <Content>
@@ -81,7 +76,12 @@ const Component = () => {
           >
             <span>가격</span>
           </BtnLink>
-          <button>유용한 자료</button>
+          <BtnLink onClick={handleOnClick}>
+            <span>
+              유용한 자료
+              <ArrowIcon isopen={open} />
+            </span>
+          </BtnLink>
           <BtnLink
             href="https://www.lemonbase.team/"
             target="_blank"
@@ -89,23 +89,31 @@ const Component = () => {
           >
             <span>회사 소개</span>
           </BtnLink>
-          <BtnLinkWithIcon
+          <BtnLink
             href="https://help.lemonbase.com/voucher/main"
             target="_blank"
             rel="noreferrer"
           >
-            <span>비대면 바우처</span>
-          </BtnLinkWithIcon>
+            <span>
+              비대면 바우처
+              <NewIcon width="38px" height="16px" fill="red" />
+            </span>
+          </BtnLink>
         </Section>
         <Section>
           <BtnLink href="/">
             <span>로그인</span>
           </BtnLink>
-          <FreeBtnLink href="/">
+          <FreeBtnLink
+            href="https://lemonbase.com/free-trial/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <span>무료체험 신청</span>
           </FreeBtnLink>
         </Section>
       </Content>
+      {open && <DropdownMenu />}
     </Wrapper>
   );
 };
