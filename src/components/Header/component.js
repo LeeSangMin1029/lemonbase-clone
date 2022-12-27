@@ -89,7 +89,7 @@ const Component = () => {
             <span>로그인</span>
           </BtnLink>
           <FreeBtnLink href="/">
-            <span>무료체험 링크</span>
+            <span>무료체험 신청</span>
           </FreeBtnLink>
         </Section>
       </Content>
