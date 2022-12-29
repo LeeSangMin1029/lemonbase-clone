@@ -6,7 +6,14 @@ const StyledIcon = styled(Arrow)`
   margin-left: 5px;
 `;
 const Component = ({ isopen }) => {
-  return <StyledIcon width="10px" height="10px" $isopen={isopen}></StyledIcon>;
+  return (
+    <StyledIcon
+      className="arrow"
+      width="10px"
+      height="10px"
+      $isopen={isopen}
+    ></StyledIcon>
+  );
 };
 
 export default Component;

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ReactComponent as NewIcon } from "./new_voucher.svg";
 import DropdownMenu from "../DropdownMenu";
 import ArrowIcon from "../ArrowIcon";
+
 const Wrapper = styled.header`
   position: fixed;
   left: 0;
@@ -27,7 +28,6 @@ const Content = styled.div`
 const Section = styled.div`
   display: flex;
   align-items: center;
-
   position: relative;
   gap: 8px;
 `;
@@ -36,7 +36,6 @@ const BtnLink = styled.a`
   span {
     padding: 13px 16px;
     border-radius: 8px;
-    font-size: 14px;
     user-select: none;
     &:hover {
       background-color: #f3f5f6;
@@ -60,9 +59,9 @@ const FreeBtnLink = styled(BtnLink)`
 `;
 
 const Component = () => {
-  const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
   const handleOnClick = (e) => {
-    setOpen(!open);
+    setShow(!show);
   };
   return (
     <Wrapper>
@@ -77,9 +76,9 @@ const Component = () => {
             <span>가격</span>
           </BtnLink>
           <BtnLink onClick={handleOnClick}>
-            <span>
+            <span className="show_menu">
               유용한 자료
-              <ArrowIcon isopen={open} />
+              <ArrowIcon isopen={show} />
             </span>
           </BtnLink>
           <BtnLink
@@ -113,7 +112,7 @@ const Component = () => {
           </FreeBtnLink>
         </Section>
       </Content>
-      {open && <DropdownMenu />}
+      <DropdownMenu show={show} setShow={setShow} />
     </Wrapper>
   );
 };
