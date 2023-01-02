@@ -1,13 +1,12 @@
 import styled from "styled-components";
+import cssTheme from "../../styles/css";
 import { useRef } from "react";
 import DropdownItem from "./DropdownItem";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 
 const Wrapper = styled.div`
+  ${cssTheme.flexBox("column", "flex-start")};
   display: ${(props) => (props.show ? "flex" : "none")};
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
   position: absolute;
   background-color: #fff;
   z-index: 1;

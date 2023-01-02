@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import cssTheme from "../../styles/css";
 import { useState } from "react";
 import { ReactComponent as NewIcon } from "./new_voucher.svg";
 import DropdownMenu from "../DropdownMenu";
@@ -15,9 +16,7 @@ const Wrapper = styled.header`
 `;
 
 const Content = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  ${cssTheme.flexBox("row", "center", "space-between")};
   margin-left: auto;
   margin-right: auto;
   min-width: 1024px;
@@ -27,8 +26,7 @@ const Content = styled.div`
 `;
 
 const Section = styled.div`
-  display: flex;
-  align-items: center;
+  ${cssTheme.flexBox("row", "center")};
   position: relative;
   gap: 8px;
 `;

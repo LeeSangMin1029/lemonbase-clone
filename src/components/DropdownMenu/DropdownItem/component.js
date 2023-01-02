@@ -1,9 +1,8 @@
 import styled from "styled-components";
+import cssTheme from "../../../styles/css";
 
 const StyledWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${cssTheme.flexBox("row")}
 `;
 
 const Component = ({ item }) => {
