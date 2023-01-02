@@ -5,6 +5,7 @@ import DropdownMenu from "../DropdownMenu";
 import ArrowIcon from "../ArrowIcon";
 
 const Wrapper = styled.header`
+  background: #fff;
   position: fixed;
   left: 0;
   right: 0;
