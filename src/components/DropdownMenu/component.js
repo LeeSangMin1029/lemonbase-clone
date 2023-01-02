@@ -41,7 +41,6 @@ const menuList = [
 
 const Component = ({ show, setShow }) => {
   const wrapperRef = useRef(null);
-  console.log(show);
   const handleOnShow = (e) => {
     const showMenu = document.querySelector(".show_menu");
     if (e.target === showMenu || e.target === showMenu.children[0]) return;
