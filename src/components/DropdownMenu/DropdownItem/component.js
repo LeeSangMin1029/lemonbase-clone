@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import cssTheme from "../../../styles/css";
+import A from "../../../elements/A";
 
 const StyledWrapper = styled.div`
   ${cssTheme.flexBox("row")}
 `;
 
-const Component = ({ item }) => {
+const Component = ({ children, ...rest }) => {
   return (
     <StyledWrapper>
-      <a href={item.href} target="_blank" rel="noreferrer">
-        {item.title}
-      </a>
+      <A {...rest}>{children}</A>
     </StyledWrapper>
   );
 };

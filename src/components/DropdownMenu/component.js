@@ -47,7 +47,9 @@ const Component = ({ show, setShow }) => {
   };
   useOutsideAlerter(wrapperRef, handleOnShow);
   const items = menuList.map((item) => (
-    <DropdownItem key={item.id} item={item} />
+    <DropdownItem key={item.id} {...item}>
+      {item.title}
+    </DropdownItem>
   ));
   return (
     <Wrapper ref={wrapperRef} show={show}>

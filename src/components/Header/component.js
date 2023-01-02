@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ReactComponent as NewIcon } from "./new_voucher.svg";
 import DropdownMenu from "../DropdownMenu";
 import ArrowIcon from "../ArrowIcon";
+import A from "../../elements/A";
 
 const Wrapper = styled.header`
   background: #fff;
@@ -31,7 +32,7 @@ const Section = styled.div`
   gap: 8px;
 `;
 
-const BtnLink = styled.a`
+const BtnLink = styled(A)`
   span {
     padding: 13px 16px;
     border-radius: 8px;
@@ -66,12 +67,10 @@ const Component = () => {
     <Wrapper>
       <Content>
         <Section>
-          <BtnLink href="/">lemonbase</BtnLink>
-          <BtnLink
-            href="https://lemonbase.com/subscription-price/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <BtnLink href="/" notTab>
+            lemonbase
+          </BtnLink>
+          <BtnLink href="https://lemonbase.com/subscription-price/">
             <span>가격</span>
           </BtnLink>
           <BtnLink onClick={handleOnClick}>
@@ -80,18 +79,10 @@ const Component = () => {
               <ArrowIcon isopen={show} />
             </span>
           </BtnLink>
-          <BtnLink
-            href="https://www.lemonbase.team/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <BtnLink href="https://www.lemonbase.team/">
             <span>회사 소개</span>
           </BtnLink>
-          <BtnLink
-            href="https://help.lemonbase.com/voucher/main"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <BtnLink href="https://help.lemonbase.com/voucher/main">
             <span>
               비대면 바우처
               <NewIcon width="38px" height="16px" fill="red" />
@@ -102,11 +93,7 @@ const Component = () => {
           <BtnLink href="/">
             <span>로그인</span>
           </BtnLink>
-          <FreeBtnLink
-            href="https://lemonbase.com/free-trial/"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <FreeBtnLink href="https://lemonbase.com/free-trial/">
             <span>무료체험 신청</span>
           </FreeBtnLink>
         </Section>
