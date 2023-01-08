@@ -10,6 +10,7 @@ const flexBox = (
   align-items: ${align};
   justify-content: ${justify};
 `;
+
 const translate = keyframes`
   from {
     transform: translateY(200px);
@@ -21,8 +22,15 @@ const translate = keyframes`
     opacity: 1;
   }
 `;
+
 const slideAnime = () => css`
-  animation: 1s ease-in-out ${translate};
+  &[anime="0"] {
+    opacity: 0;
+  }
+  &[anime="1"] {
+    animation: 1s ease-in-out ${translate};
+  }
 `;
+
 const cssTheme = { flexBox, slideAnime };
 export default cssTheme;
