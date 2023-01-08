@@ -47,8 +47,8 @@ const Component = () => {
           <AButton href="https://lemonbase.com/subscription-price/">
             가격
           </AButton>
-          <AButton onClick={handleOnClick}>
-            <span className="show_menu">유용한 자료</span>
+          <AButton onClick={handleOnClick} className="show_menu">
+            유용한 자료
             <ArrowIcon isopen={show} />
           </AButton>
           <AButton href="https://www.lemonbase.team/">회사 소개</AButton>
@@ -59,7 +59,7 @@ const Component = () => {
         </Section>
         <Section>
           <AButton href="/">로그인</AButton>
-          <AButton blue href="https://lemonbase.com/free-trial/">
+          <AButton blue="blue" href="https://lemonbase.com/free-trial/">
             무료체험 신청
           </AButton>
         </Section>
