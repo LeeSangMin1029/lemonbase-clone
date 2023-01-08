@@ -5,8 +5,7 @@ import H1 from "../../elements/H1";
 import P from "../../elements/P";
 import AButton from "../AButton";
 import perManage from "../../image/p_manage.png";
-import useIntersect from "../../hooks/useIntersect";
-import { useState } from "react";
+import useAnime from "../../hooks/useAnime";
 
 const Wrapper = styled.main`
   ${cssTheme.flexBox("column", "center", "flex-start")};
@@ -20,21 +19,14 @@ const Wrapper = styled.main`
     div {
       display: flex;
     }
-    img[anime="0"] {
-      opacity: 0;
-    }
-    img[anime="1"] {
+    img {
       ${cssTheme.slideAnime()}
     }
   }
 `;
 
 const Component = () => {
-  const [anime, setAnime] = useState(false);
-  const [_, setRef] = useIntersect((entry, observer) => {
-    setAnime(true);
-    observer.unobserve(entry.target);
-  });
+  const [anime, setRef] = useAnime(false);
   return (
     <Wrapper>
       <Section>
@@ -58,7 +50,6 @@ const Component = () => {
         </div>
         <div>
           <img
-            className="hello"
             anime={anime ? 1 : 0}
             ref={setRef}
             src={perManage}
