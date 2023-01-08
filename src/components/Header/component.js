@@ -32,17 +32,6 @@ const Section = styled.div`
   gap: 8px;
 `;
 
-const FreeBtnLink = styled(AButton)`
-  span {
-    color: #fff;
-    background-color: #328af6;
-    &:hover {
-      color: #fff;
-      background-color: #2f6ecf;
-    }
-  }
-`;
-
 const Component = () => {
   const [show, setShow] = useState(false);
   const handleOnClick = (e) => {
@@ -78,9 +67,9 @@ const Component = () => {
           <AButton href="/">
             <span>로그인</span>
           </AButton>
-          <FreeBtnLink href="https://lemonbase.com/free-trial/">
+          <AButton blue href="https://lemonbase.com/free-trial/">
             <span>무료체험 신청</span>
-          </FreeBtnLink>
+          </AButton>
         </Section>
       </Content>
       <DropdownMenu show={show} setShow={setShow} />

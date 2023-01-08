@@ -3,13 +3,15 @@ import A from "../../elements/A";
 
 const AButton = styled(A)`
   span {
+    color: ${(props) => (props.blue ? "#fff" : "#000")};
+    background-color: ${(props) => (props.blue ? "#328af6" : "fff")};
     padding: 13px 16px;
     border-radius: 8px;
     user-select: none;
     cursor: pointer;
     &:hover {
-      background-color: #f3f5f6;
-      color: #4c5067;
+      background-color: ${(props) => (props.blue ? "#2f6ecf" : "#f3f5f6")};
+      color: ${(props) => (props.blue ? "#fff" : "#4c5067")};
       transition: all 0.3s ease 0s;
     }
   }
