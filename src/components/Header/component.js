@@ -45,30 +45,22 @@ const Component = () => {
             lemonbase
           </AButton>
           <AButton href="https://lemonbase.com/subscription-price/">
-            <span>가격</span>
+            가격
           </AButton>
           <AButton onClick={handleOnClick}>
-            <span className="show_menu">
-              유용한 자료
-              <ArrowIcon isopen={show} />
-            </span>
+            <span className="show_menu">유용한 자료</span>
+            <ArrowIcon isopen={show} />
           </AButton>
-          <AButton href="https://www.lemonbase.team/">
-            <span>회사 소개</span>
-          </AButton>
+          <AButton href="https://www.lemonbase.team/">회사 소개</AButton>
           <AButton href="https://help.lemonbase.com/voucher/main">
-            <span>
-              비대면 바우처
-              <Voucher />
-            </span>
+            비대면 바우처
+            <Voucher />
           </AButton>
         </Section>
         <Section>
-          <AButton href="/">
-            <span>로그인</span>
-          </AButton>
+          <AButton href="/">로그인</AButton>
           <AButton blue href="https://lemonbase.com/free-trial/">
-            <span>무료체험 신청</span>
+            무료체험 신청
           </AButton>
         </Section>
       </Content>
