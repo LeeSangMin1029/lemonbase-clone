@@ -14,6 +14,7 @@ const Wrapper = styled.header`
   top: 0;
   width: 100%;
   height: 68px;
+  z-index: 9999;
 `;
 
 const Content = styled.div`

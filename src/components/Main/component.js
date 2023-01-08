@@ -5,6 +5,7 @@ import H1 from "../../elements/H1";
 import P from "../../elements/P";
 import AButton from "../AButton";
 import perManage from "../../image/p_manage.png";
+import useIntersect from "../../hooks/useIntersect";
 
 const Wrapper = styled.main`
   ${cssTheme.flexBox("column", "center", "flex-start")};
@@ -18,10 +19,16 @@ const Wrapper = styled.main`
     div {
       display: flex;
     }
+    img {
+      ${cssTheme.slideAnime()};
+    }
   }
 `;
 
 const Component = () => {
+  const [_, setRef] = useIntersect((entry, observer) => {
+    observer.unobserve(entry.target);
+  });
   return (
     <Wrapper>
       <Section>
@@ -44,7 +51,7 @@ const Component = () => {
           </div>
         </div>
         <div>
-          <img src={perManage} alt="성과관리" width="470" />
+          <img ref={setRef} src={perManage} alt="성과관리" width="470" />
         </div>
       </Section>
     </Wrapper>

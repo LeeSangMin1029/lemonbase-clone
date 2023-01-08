@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css, keyframes } from "styled-components";
 
 const flexBox = (
   direction = "row",
@@ -10,5 +10,19 @@ const flexBox = (
   align-items: ${align};
   justify-content: ${justify};
 `;
-const cssTheme = { flexBox };
+const translate = keyframes`
+  from {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+`;
+const slideAnime = () => css`
+  animation: 1s ease-in-out ${translate};
+`;
+const cssTheme = { flexBox, slideAnime };
 export default cssTheme;
