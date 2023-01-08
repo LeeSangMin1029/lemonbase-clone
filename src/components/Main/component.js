@@ -6,6 +6,7 @@ import P from "../../elements/P";
 import AButton from "../AButton";
 import perManage from "../../image/p_manage.png";
 import useIntersect from "../../hooks/useIntersect";
+import { useState } from "react";
 
 const Wrapper = styled.main`
   ${cssTheme.flexBox("column", "center", "flex-start")};
@@ -19,14 +20,19 @@ const Wrapper = styled.main`
     div {
       display: flex;
     }
-    img {
-      ${cssTheme.slideAnime()};
+    img[anime="0"] {
+      opacity: 0;
+    }
+    img[anime="1"] {
+      ${cssTheme.slideAnime()}
     }
   }
 `;
 
 const Component = () => {
+  const [anime, setAnime] = useState(false);
   const [_, setRef] = useIntersect((entry, observer) => {
+    setAnime(true);
     observer.unobserve(entry.target);
   });
   return (
@@ -51,7 +57,14 @@ const Component = () => {
           </div>
         </div>
         <div>
-          <img ref={setRef} src={perManage} alt="성과관리" width="470" />
+          <img
+            className="hello"
+            anime={anime ? 1 : 0}
+            ref={setRef}
+            src={perManage}
+            alt="성과관리"
+            width="470"
+          />
         </div>
       </Section>
     </Wrapper>
