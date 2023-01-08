@@ -3,7 +3,7 @@ import A from "../../elements/A";
 
 const AButton = styled(A)`
   color: ${(props) => (props.blue ? "#fff" : "#000")};
-  background-color: ${(props) => (props.blue ? "#328af6" : "fff")};
+  background-color: ${(props) => (props.blue ? "#328af6" : "#fff")};
   padding: 13px 16px;
   border-radius: 8px;
   user-select: none;

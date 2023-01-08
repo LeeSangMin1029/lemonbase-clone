@@ -38,11 +38,11 @@ const menuList = [
   },
 ];
 
-const Component = ({ show, setShow }) => {
+const Component = ({ show, setShow, ...rest }) => {
   const wrapperRef = useRef(null);
   const handleOnShow = (e) => {
     const showMenu = document.querySelector(".show_menu");
-    if (e.target === showMenu || e.target === showMenu.children[0]) return;
+    if (showMenu.contains(e.target)) return;
     setShow(false);
   };
   useOutsideAlerter(wrapperRef, handleOnShow);
@@ -52,7 +52,7 @@ const Component = ({ show, setShow }) => {
     </DropdownItem>
   ));
   return (
-    <Wrapper ref={wrapperRef} show={show}>
+    <Wrapper ref={wrapperRef} show={show} {...rest}>
       {items}
     </Wrapper>
   );
