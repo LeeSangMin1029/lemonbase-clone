@@ -4,8 +4,8 @@ import Section from "../../elements/Section";
 import H1 from "../../elements/H1";
 import P from "../../elements/P";
 import AButton from "../AButton";
+import Animate from "../Animate";
 import perManage from "../../image/p_manage.png";
-import useAnime from "../../hooks/useAnime";
 
 const Wrapper = styled.main`
   ${cssTheme.flexBox("column", "center", "flex-start")};
@@ -13,20 +13,16 @@ const Wrapper = styled.main`
   min-width: 1024px;
   margin: 0px auto;
   width: 100%;
-  section > div {
+  section div {
     flex: 0 0 50%;
     width: 100%;
     div {
       display: flex;
     }
-    img {
-      ${cssTheme.slideAnime()}
-    }
   }
 `;
 
 const Component = () => {
-  const [anime, setRef] = useAnime(false);
   return (
     <Wrapper>
       <Section>
@@ -48,15 +44,9 @@ const Component = () => {
             <AButton>서비스 소개 영상 보기</AButton>
           </div>
         </div>
-        <div>
-          <img
-            anime={anime ? 1 : 0}
-            ref={setRef}
-            src={perManage}
-            alt="성과관리"
-            width="470"
-          />
-        </div>
+        <Animate>
+          <img src={perManage} alt="성과관리" width="470" />
+        </Animate>
       </Section>
     </Wrapper>
   );

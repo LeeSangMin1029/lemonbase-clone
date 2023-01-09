@@ -24,11 +24,13 @@ const translate = keyframes`
 `;
 
 const slideAnime = () => css`
-  &[anime="0"] {
-    opacity: 0;
-  }
-  &[anime="1"] {
-    animation: 1s ease-in-out ${translate};
+  ${(props) => props.children.type} {
+    &[anime="0"] {
+      opacity: 0;
+    }
+    &[anime="1"] {
+      animation: 1s ease-in-out ${translate};
+    }
   }
 `;
 
