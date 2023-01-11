@@ -1,54 +1,44 @@
-import styled from "styled-components";
-import cssTheme from "../../styles/css";
+import { useState } from "react";
+import Styled from "./style";
 import Section from "../../elements/Section";
-import H1 from "../../elements/H1";
-import P from "../../elements/P";
+import Typography from "../Typography";
 import AButton from "../AButton";
 import Animate from "../Animate";
+import Video from "../Video";
 import perManage from "../../image/p_manage.png";
 
-const Wrapper = styled.main`
-  ${cssTheme.flexBox("column", "center", "flex-start")};
-  max-width: 1164px;
-  min-width: 1024px;
-  margin: 0px auto;
-  width: 100%;
-  section div {
-    flex: 0 0 50%;
-    width: 100%;
-    div {
-      display: flex;
-    }
-  }
-`;
-
 const Component = () => {
+  const [view, setView] = useState(false);
+  const onClickVideoPlay = () => {
+    setView(true);
+  };
   return (
-    <Wrapper>
+    <Styled.Main>
       <Section>
         <div>
-          <H1 fontSize="40px">
+          <Typography component="h1" size="48" mb="2">
             일회성 평가 대신
             <br />
             지속적인 성과 관리
-          </H1>
-          <P>
+          </Typography>
+          <Typography component="p" size="18" mb="10">
             실시간 목표 관리, 매주 1:1 미팅, 수시 피드백, 데이터 기반 평가까지.
             <br />
             건강한 성과 관리 활동으로 하루 하루 더 빠르게 성장합니다!
-          </P>
+          </Typography>
           <div>
             <AButton blue="blue" href="https://lemonbase.com/free-trial">
-              <span>14일 무료체험 신청</span>
+              14일 무료체험 신청
             </AButton>
-            <AButton>서비스 소개 영상 보기</AButton>
+            <AButton onClick={onClickVideoPlay}>서비스 소개 영상 보기</AButton>
           </div>
         </div>
         <Animate>
           <img src={perManage} alt="성과관리" width="470" />
         </Animate>
       </Section>
-    </Wrapper>
+      {view && <Video width="1000" height="624" src="_g_8qeV9nPo?autoplay=1" />}
+    </Styled.Main>
   );
 };
 
