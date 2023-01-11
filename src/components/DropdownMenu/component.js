@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import cssTheme from "../../styles/css";
-import { useRef } from "react";
+import { useLayoutEffect, useRef, useState, useCallback } from "react";
 import DropdownItem from "./DropdownItem";
 import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 140px;
   height: 110px;
   top: calc(100% + 0.25rem);
-  left: 510px;
+  left: ${(props) => props.pos.x}px;
   padding: 0.5rem;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
   gap: 1em;
@@ -38,13 +38,25 @@ const menuList = [
   },
 ];
 
-const Component = ({ show, setShow }) => {
+const Component = ({ show, setShow, ...rest }) => {
+  const getElemPosition = useCallback((className) => {
+    const elements = document?.querySelector(`.${className}`);
+    const pos = elements?.getBoundingClientRect();
+    return pos;
+  }, []);
   const wrapperRef = useRef(null);
+  const [menuPos, setMenuPos] = useState({ x: 0, y: 0 });
   const handleOnShow = (e) => {
     const showMenu = document.querySelector(".show_menu");
-    if (e.target === showMenu || e.target === showMenu.children[0]) return;
+    if (showMenu.contains(e.target)) return;
     setShow(false);
   };
+  useLayoutEffect(() => {
+    const { x, y } = getElemPosition("show_menu");
+    setMenuPos((prev) => {
+      return { ...prev, x, y };
+    });
+  }, [getElemPosition]);
   useOutsideAlerter(wrapperRef, handleOnShow);
   const items = menuList.map((item) => (
     <DropdownItem key={item.id} {...item}>
@@ -52,7 +64,7 @@ const Component = ({ show, setShow }) => {
     </DropdownItem>
   ));
   return (
-    <Wrapper ref={wrapperRef} show={show}>
+    <Wrapper ref={wrapperRef} pos={menuPos} show={show} {...rest}>
       {items}
     </Wrapper>
   );
