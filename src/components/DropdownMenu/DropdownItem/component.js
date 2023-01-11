@@ -1,16 +1,11 @@
-import styled from "styled-components";
-import cssTheme from "../../../styles/css";
+import Styled from "./style";
 import A from "../../../elements/A";
-
-const StyledWrapper = styled.div`
-  ${cssTheme.flexBox("row")}
-`;
 
 const Component = ({ children, ...rest }) => {
   return (
-    <StyledWrapper>
+    <Styled.MenuItem>
       <A {...rest}>{children}</A>
-    </StyledWrapper>
+    </Styled.MenuItem>
   );
 };
 
