@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import cssTheme from "../../styles/css";
+import Styled from "./style";
 import Section from "../../elements/Section";
 import H1 from "../../elements/H1";
 import P from "../../elements/P";
@@ -7,24 +6,9 @@ import AButton from "../AButton";
 import Animate from "../Animate";
 import perManage from "../../image/p_manage.png";
 
-const Wrapper = styled.main`
-  ${cssTheme.flexBox("column", "center", "flex-start")};
-  max-width: 1164px;
-  min-width: 1024px;
-  margin: 0px auto;
-  width: 100%;
-  section div {
-    flex: 0 0 50%;
-    width: 100%;
-    div {
-      display: flex;
-    }
-  }
-`;
-
 const Component = () => {
   return (
-    <Wrapper>
+    <Styled.Main>
       <Section>
         <div>
           <H1 fontSize="40px">
@@ -48,7 +32,7 @@ const Component = () => {
           <img src={perManage} alt="성과관리" width="470" />
         </Animate>
       </Section>
-    </Wrapper>
+    </Styled.Main>
   );
 };
 
