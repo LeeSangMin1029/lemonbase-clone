@@ -1,11 +1,17 @@
+import { useState } from "react";
 import Styled from "./style";
 import Section from "../../elements/Section";
 import Typography from "../Typography";
 import AButton from "../AButton";
 import Animate from "../Animate";
+import Video from "../Video";
 import perManage from "../../image/p_manage.png";
 
 const Component = () => {
+  const [view, setView] = useState(false);
+  const onClickVideoPlay = () => {
+    setView(true);
+  };
   return (
     <Styled.Main>
       <Section>
@@ -24,13 +30,14 @@ const Component = () => {
             <AButton blue="blue" href="https://lemonbase.com/free-trial">
               14일 무료체험 신청
             </AButton>
-            <AButton>서비스 소개 영상 보기</AButton>
+            <AButton onClick={onClickVideoPlay}>서비스 소개 영상 보기</AButton>
           </div>
         </div>
         <Animate>
           <img src={perManage} alt="성과관리" width="470" />
         </Animate>
       </Section>
+      {view && <Video width="1000" height="624" src="_g_8qeV9nPo?autoplay=1" />}
     </Styled.Main>
   );
 };
