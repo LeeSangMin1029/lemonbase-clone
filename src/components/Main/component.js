@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Styled from "./style";
 import Section from "../../elements/Section";
 import Typography from "../Typography";
@@ -37,7 +37,6 @@ const Component = () => {
           <img src={perManage} alt="성과관리" width="470" />
         </Animate>
       </Section>
-      {view && <Video width="1000" height="624" src="_g_8qeV9nPo?autoplay=1" />}
     </Styled.Main>
   );
 };
