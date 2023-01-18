@@ -1,7 +1,8 @@
 import Styled from "./style";
+import portalRenderer from "../../hooks/useRenderPortal";
 
 const Component = ({ src, width, height, ...rest }) => {
-  return (
+  const StyledComponent = (
     <Styled.Div {...rest}>
       <iframe
         title="youtube_video"
@@ -17,5 +18,6 @@ const Component = ({ src, width, height, ...rest }) => {
       />
     </Styled.Div>
   );
+  return portalRenderer(StyledComponent, "youtube_iframe");
 };
 export default Component;

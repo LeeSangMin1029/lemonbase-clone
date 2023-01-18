@@ -9,7 +9,7 @@ const Header = styled.header`
   top: 0;
   width: 100%;
   height: 68px;
-  z-index: 9999;
+  z-index: 5;
 `;
 
 const Content = styled.div`
