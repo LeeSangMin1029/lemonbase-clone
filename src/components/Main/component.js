@@ -37,7 +37,14 @@ const Component = () => {
           <img src={perManage} alt="성과관리" width="470" />
         </Animate>
       </Section>
-      {view && <Video width="1000" height="624" src="_g_8qeV9nPo?autoplay=1" />}
+      {view && (
+        <Video
+          setView={setView}
+          width="1268"
+          height="713"
+          src="_g_8qeV9nPo?autoplay=1"
+        />
+      )}
     </Styled.Main>
   );
 };

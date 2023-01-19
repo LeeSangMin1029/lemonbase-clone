@@ -1,11 +1,20 @@
 import Styled from "./style";
 import portalRenderer from "../../hooks/useRenderPortal";
+import useOutsideAlerter from "../../hooks/useOutsideAlerter";
+import { ReactComponent as CloseBtn } from "./close-button.svg";
+import { createRef } from "react";
 
-const Component = ({ src, width, height, ...rest }) => {
+const Component = ({ setView, src, width, height, ...rest }) => {
+  const ref = createRef(null);
+  const onClicked = () => {
+    setView(false);
+  };
+  useOutsideAlerter(ref, onClicked);
   const StyledComponent = (
-    <Styled.Div {...rest}>
+    <Styled.Div {...rest} onClick={onClicked} ref={ref}>
+      <CloseBtn id="close-btn" />
       <iframe
-        title="youtube_video"
+        title="Lemonbase | 레몬베이스 한 번에 이해하기"
         id="ytplayer"
         type="text/html"
         width={width}
