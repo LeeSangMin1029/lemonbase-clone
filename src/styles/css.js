@@ -11,6 +11,19 @@ const flexBox = (
   justify-content: ${justify};
 `;
 
+const buttonStyles = (radius) => css`
+  color: ${(props) => (props.blue ? "#fff" : "#000")};
+  background-color: ${(props) => (props.blue ? "#328af6" : "#fff")};
+  user-select: none;
+  cursor: pointer;
+  border-radius: ${radius};
+  &:hover {
+    background-color: ${(props) => (props.blue ? "#2f6ecf" : "#f3f5f6")};
+    color: ${(props) => (props.blue ? "#fff" : "#4c5067")};
+    transition: all 0.3s ease 0s;
+  }
+`;
+
 const translate = keyframes`
   from {
     transform: translateY(200px);
@@ -34,5 +47,5 @@ const slideAnime = () => css`
   }
 `;
 
-const cssTheme = { flexBox, slideAnime };
+const cssTheme = { flexBox, slideAnime, buttonStyles };
 export default cssTheme;
