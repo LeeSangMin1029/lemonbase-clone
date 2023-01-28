@@ -19,7 +19,7 @@ const Component = () => {
   const btnList = wordList.map((word, id) => {
     return (
       <li key={id} onClick={() => handleView(id)}>
-        <Typography component="span" fontColor="white">
+        <Typography component="span" fontcolor="white">
           {word.title}
         </Typography>
       </li>

@@ -19,7 +19,7 @@ const Component = ({ item }) => {
   const { title: linkTitle, src: href } = item.link;
   const descriptList = item.description.map((des, i) => (
     <li key={i}>
-      <Typography component="p" size="14" fontColor="#4C5967">
+      <Typography component="p" size="14" fontcolor="#4C5967">
         {des}
       </Typography>
     </li>
@@ -34,7 +34,7 @@ const Component = ({ item }) => {
           {item.title}
         </Typography>
         <ul>{descriptList}</ul>
-        <Typography href={href} component="a" size="16" fontColor="#328af6">
+        <Typography href={href} component="a" size="16" fontcolor="#328af6">
           {linkTitle}
         </Typography>
       </Styled.Details>

@@ -6,7 +6,7 @@ const Tag = styled.div`
   text-align: ${({ textAlign }) => textAlign && "center"};
   white-space: pre-line;
   line-height: 1.4em;
-  color: ${({ fontColor }) => fontColor || "black"};
+  color: ${({ fontcolor }) => fontcolor || "black"};
 `;
 
 const Styled = { Tag };
