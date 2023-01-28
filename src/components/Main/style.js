@@ -6,9 +6,6 @@ const Main = styled.main`
   max-width: 1164px;
   min-width: 1024px;
   margin: 0px auto;
-  section > div {
-    flex: 0 0 50%;
-  }
 `;
 
 const Styled = { Main };
