@@ -32,9 +32,11 @@ const Component = () => {
             <AButton onClick={onClickVideoPlay}>서비스 소개 영상 보기</AButton>
           </div>
         </div>
-        <Animate>
-          <img src={perManage} alt="성과관리" width="470" />
-        </Animate>
+        <Styled.Blank preWidth="470px" preHeight="370px">
+          <Animate>
+            <img src={perManage} alt="성과관리" width="470" />
+          </Animate>
+        </Styled.Blank>
       </Styled.ExtendsSection>
       {view && (
         <Video
