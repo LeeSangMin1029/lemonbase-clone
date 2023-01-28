@@ -1,6 +1,5 @@
 import Styled from "./style";
 import Typography from "@components/Typography";
-import SideScrollingMenu from "./SideScrollingMenu";
 import BrandImage from "@image/brand_images.png";
 
 const Component = () => {
@@ -12,7 +11,6 @@ const Component = () => {
       <Styled.Blank preWidth="1164px" preHeight="530px">
         <img src={BrandImage} alt="브랜드 이미지" width="1164px" />
       </Styled.Blank>
-      <SideScrollingMenu />
     </Styled.ExtendsSection>
   );
 };
