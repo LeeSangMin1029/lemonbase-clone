@@ -5,7 +5,6 @@ import ThirdImage from "@image/3.png";
 import FourthImage from "@image/4.png";
 import FifthImage from "@image/5.png";
 import Styled from "./style";
-import A from "@elements/A";
 
 const imageComp = {
   1: FirstImage,
@@ -27,7 +26,9 @@ const Component = ({ item }) => {
   ));
   return (
     <Styled.Item>
-      <img src={Image} width="768px" alt={item.title} />
+      <Styled.Blank preWidth="768px" preHeight="475px">
+        <img src={Image} width="768px" alt={item.title} />
+      </Styled.Blank>
       <Styled.Details>
         <Typography component="h1" size="22" mb="4">
           {item.title}
